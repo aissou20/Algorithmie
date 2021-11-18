@@ -40,7 +40,7 @@ function bench(fonctionDetri) {
     return Date.now() - debut;
 }
 const triAvecSort = () => tab.sort(logiqueDeTri);
-const triAvecCustom = () => triCustom();
-//console.log(`Tri avec sort(): `, bench(triAvecSort) + ' ms')
-console.log(`Tri custom: `, bench(triAvecCustom) + ' ms');
+//const triAvecCustom = () => triCustom()
+console.log(`Tri avec sort(): `, bench(triAvecSort) + ' ms');
+console.log(`Tri custom: `, bench(triCustom) + ' ms');
 //# sourceMappingURL=index.js.map

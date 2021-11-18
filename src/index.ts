@@ -37,12 +37,12 @@ function triCustom() {
  */
 function bench(fonctionDetri: () => void): number {
     const debut: number = Date.now()
-    const ret: Array<number> = fonctionDetri()
+    const ret: void= fonctionDetri()
     return Date.now() - debut
 }
 
 const triAvecSort = () => tab.sort(logiqueDeTri)
-const triAvecCustom = () => triCustom()
+//const triAvecCustom = () => triCustom()
 
-//console.log(`Tri avec sort(): `, bench(triAvecSort) + ' ms')
-console.log(`Tri custom: `, bench(triAvecCustom) + ' ms')
+console.log(`Tri avec sort(): `, bench(triAvecSort) + ' ms')
+console.log(`Tri custom: `, bench(triCustom) + ' ms')
