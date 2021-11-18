@@ -8,7 +8,7 @@
     "build": "tsc",
     "build:watch": "tsc --watch",
     "clean": "rimraf public/scripts/",
-    "start:dev": "npm run clean && npm run build",
+    "start:dev": "npm run clean && npm run build && run-p build:watch start",
     "start": "node public/scripts/index.js"
   },
   "repository": {
