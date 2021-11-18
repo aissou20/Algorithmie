@@ -8,7 +8,11 @@ const problemesFaciles = {
 const problemeDifficiles = {
     "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeef": ["e", "ee", "eee", "eeee", "eeeee", "eeeeee"] //false
 };
-const constructionPossible = (objectif, alphabet) => {
+const constructionPossible = (objectif, alphabet, memo = {} // mettre les valeurs en cache
+) => {
+    if (objectif in memo) {
+        return memo[objectif];
+    }
     if (objectif === "") {
         return true;
     }
@@ -17,16 +21,18 @@ const constructionPossible = (objectif, alphabet) => {
         if (objectif.indexOf(elt) === 0) {
             const rest = objectif.slice(elt.length);
             if (constructionPossible(rest, alphabet)) {
+                memo[objectif] = true;
                 return true;
             }
         }
     }
+    memo[objectif] = false;
     return false;
 };
 function benche(problemes) {
     for (const objectif in problemes) {
         const alphabet = problemes[objectif];
-        console.log(`"${objectif}"-> ${constructionPossible(objectif, alphabet)}`);
+        console.log(`objectif"${objectif}"-> ${constructionPossible(objectif, alphabet)}`);
     }
 }
 //benche(problemesFaciles)
